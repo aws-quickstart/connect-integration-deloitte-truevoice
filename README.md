@@ -6,8 +6,7 @@ Deploying this Quick Start sets up a registration integration used to provide re
 
 The Quick Start sets up the following:
 
-![](https://raw.githubusercontent.com/TVdelit01/aws-quickstart/connect-integration-deloitte-truevoice/assets/TrueVoice-on-AWS-Cloud-Architecture.png)
-
+![](https://raw.githubusercontent.com/TVdelit01/connect-integration-deloitte-truevoice/assets/TrueVoice-on-AWS-Cloud-Architecture.png)
 
 •	A registration stack consisting of a Custom Resource Lambda function that will invoke the TrueVoice PoV registration API and return a registration ID as a CloudFormation output.
 
