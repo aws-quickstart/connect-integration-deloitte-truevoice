@@ -18,7 +18,7 @@ After successful registration, an AWS Service Catalog Product will be made avail
 
 •	The required lambda IAM Execution Role to carry out the transfer from the integration bucket into the customer dedicated resources in the TrueVoice AWS Account.
 
-For architectural details, best practices, step-by-step instructions, and customization options, see the [deployment guide](http://to-be-updated).
+For architectural details, best practices, step-by-step instructions, and customization options, see the [deployment guide](http://to-be-changed).
 
 To post feedback, submit feature ideas, or report bugs, use the Issues section of this GitHub repo.
 
