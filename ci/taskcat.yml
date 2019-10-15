@@ -1,7 +1,8 @@
+---
 global:
   marketplace-ami: false
   owner: quickstart-eng@amazon.com
-  qsname: quickstart-deloitte-truevoice
+  qsname: connect-integration-deloitte-truevoice
   regions:
     - ap-northeast-1
     - ap-northeast-2
@@ -17,11 +18,7 @@ global:
     - us-west-1
     - us-west-2
   reporting: true
- 
 tests:
   quickstart-deloitte-truevoicet1:
-    parameter_input: quickstart-deloitte-truevoice-example-params1.json
-    template_file: quickstart-deloitte-truevoice-example1.template
-  quickstart-deloitte-truevoicet2:
-    parameter_input: quickstart-deloitte-truevoice-example-params2.json
-    template_file: quickstart-deloitte-truevoice-example2.template
+    parameter_input: quickstart-deloitte-truevoice.json
+    template_file: quickstart-deloitte-truevoice.template
