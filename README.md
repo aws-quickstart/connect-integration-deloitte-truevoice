@@ -4,9 +4,9 @@
 
 Deploying this Quick Start sets up a registration integration used to provide registration and proposed on-boarding information for validation by the TrueVoice customer engagement team. After successful registration and TrueVoice due diligence procedures are complete, an AWS Service Catalog product will be made available to users, which provides a multipurpose TrueVoice PoV integration layer ready for use with AWS Connect, Corporate Data Centre or AWS Management Console uploads to S3:
 
-The Quick Start sets up the following:
-
 ![](https://github.com/TVdelit01/connect-integration-deloitte-truevoice/blob/develop/assets/TrueVoice-on-AWS-Cloud-Architecture.png)
+
+The Quick Start sets up the following:
 
 •	A registration stack consisting of a Custom Resource Lambda function that will invoke the TrueVoice PoV registration API and return a registration ID as a CloudFormation output.
 
