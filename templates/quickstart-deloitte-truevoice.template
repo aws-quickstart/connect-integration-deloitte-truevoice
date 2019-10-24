@@ -27,8 +27,8 @@ Metadata:
       - Label:
           default: Scope
         Parameters:
-          - ScopeOfServices1
-          - ScopeOfServices2
+          - Level1Services
+          - Level2Services
       - Label:
           default: TrueVoice Front End 
         Parameters:
@@ -85,63 +85,62 @@ Metadata:
         default: Brief description of Customer
       CustomerRegisteredAddress:
         default: Customer registered address
-      ScopeOfServices1:
+      Level1Services:
         default: Level 1 Services
-      ScopeOfServices2:
+      Level2Services:
         default: Level 2 Services
       TermsAndConditions:
         default: Terms & conditions
 Parameters:
   TermsAndConditions:
     Type: String
-    Description: By submitting this form you agree that Deloitte may process any the personal data supplied by you (to include - name, email address, addresses and any incidental personal information captured on recordings) as necessary in connection with the Deloitte TrueVoice service. For more details on how Deloitte handles and shares your information, your rights and how to contact us, please follow to https://www2.deloitte.com/uk/en/footerlinks1/privacy.html. Please note that any agreement to provide the True Voice service is subject the information we receive from you and agreeing a suitable contract between us for your selected services. In addition, you agree to our terms by submitting this form, you are agreeing to our Terms & Conditions. Please view these at the following link https://d154d4u55he2e5.cloudfront.net.
+    Description: By submitting this form you agree that Deloitte may process any the personal data supplied by you (to include - name, email address, addresses and any incidental personal information captured on recordings) as necessary in connection with the Deloitte TrueVoice service. For more details on how Deloitte handles and shares your information, your rights and how to contact us, please follow to https://www2.deloitte.com/uk/en/footerlinks1/privacy.html. Please note that any agreement to provide the True Voice service is subject the information we receive from you and agreeing a suitable contract between us for your selected services. In addition, you agree to our terms by submitting this form, you are agreeing to our Terms & Conditions. Please view these at the following link https://d154d4u55he2e5.cloudfront.net. Please select Yes to confirm this.
+    AllowedValues: 
+      - 'Yes'
+  Level1Services:
+    Type: String
+    Description: For the PoV, which are you looking to make use of our level 1 services? The level 1 services will be discussed in more detail in the workshop session. Please note, these typically have a 1- 4 week engagement window. To use TrueVoice, at least Level 1 Services or Level 2 Services must be selected.
     AllowedValues: 
       - 'Yes'
       - 'No'
-  ScopeOfServices1:
+  Level2Services:
     Type: String
-    Description: For the PoV, which are you looking to make use of our level 1 services? The level 1 services will be discussed in more detail in the workshop session.
-    AllowedValues: 
-      - 'Yes'
-      - 'No'
-  ScopeOfServices2:
-    Type: String
-    Description: For the PoV, which are you looking to make use of our level 2 services? The level 2 services will be discussed in more detail in the workshop session.
+    Description: For the PoV, which are you looking to make use of our level 2 services? The level 2 services will be discussed in more detail in the workshop session. Please note, these typically have a 4- 8 week engagement window. To use TrueVoice, at least Level 1 Services or Level 2 Services must be selected.
     AllowedValues: 
       - 'Yes'
       - 'No'
   MFA:
-    Description: Users for the Deloitte Hosted Web Application will be provisioned logins with MFA and username and password. Please confirm this is appropriate.
+    Description: Users for the Deloitte Hosted Web Application will be provisioned logins with MFA and username and password. Please confirm this is appropriate. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PermissionToProcess:
-    Description: By submitting this application, you are permitting us to process this data on the TrueVoice platform for the Deloitte Provisioned AWS cloud in eu-west2 London region.
+    Description: By submitting this application, you are permitting us to process this data on the TrueVoice platform for the Deloitte Provisioned AWS cloud in the eu-west-2 (London) region. Further regions will be made available in Q4 2019. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PermissionToTransfer:
-    Description: Please confirm that it is appropriate for you to transfer this data to TrueVoice for processing and use in this engagment.
+    Description: Please confirm that it is appropriate for you to transfer this data to TrueVoice for processing and use in this engagement. For the PoV, we will hold your data for 90 days post PoV completion, after which data is deleted. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   VolumeOfData:
-    Description: Please confirm you are able to provide at least 1,000 hours of audio, in English, will be required for this engagement (maximum of 3,000 hours). 
+    Description: Please confirm you are able to provide at least 1,000 hours of audio, in English, will be required for this engagement (maximum of 3,000 hours). Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   DataRetention:
-    Description: For the POV, we will hold your data for 90 days post PoV completion, after which data is deleted. Please confirm this is appropriate.
+    Description: For the POV, we will hold your data for 90 days post PoV completion, after which data is deleted. Please confirm this is appropriate. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   SendingFiles:
-    Description: Are you able to push media into a dedicated pre-specified TrueVoice S3 bucket (to be provided)?
+    Description: Are you able to push media into a dedicated pre-specified TrueVoice S3 bucket? Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
@@ -162,52 +161,48 @@ Parameters:
   AudioFormatsCodecs:
     Description: What file formats would TrueVoice need to process?
     Type: String
-    AllowedValues: 
-      - Unknown
-      - .mp3
-      - .wav
-      - .mov
+    AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   AudioFormatsFile:
     Description: What codecs would TrueVoice need to process?
     Type: String
-    AllowedValues: 
-      - Unknown
-      - G729a
-      - G711
+    AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   UsersPov:
     Description: How many Deloitte Hosted Web Application user profiles would you require? This is limited to 5 for a POV. Deloitte will request these user details in the kick off workshop. 
     Type: String
   CustomerName:
-    Description: Please state the name of the company this service is for
+    Description: The name of the company this service is for.
     Type: String
   CustomerMainContactName:
-    Description: Person responsible for the TrueVoice service
+    Description: The name of the main customer contact for this service. Correspondence will be with this person. 
     Type: String
   CustomerMainContactEmail:
-    Description: Person responsible for the TrueVoice service
+    Description: The name of the main customer contact for this service. Correspondence will be with this person. 
     Type: String
     AllowedPattern: ([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)
   PersonCompletingForm:
+    Description: The name of the person completing this template.
     Type: String
   PersonCompletingEmailAddress:
+    Description: The email of the person completing this template.
     Type: String
     AllowedPattern: ([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)
   CustomerIndustry:
-    Description: Please state the industry
+    Description: The industry this company serves.
     Type: String
   ListedOrQuoted:
+    Description: Choose yes if your company is listed in a stock exchange.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PreviousCustomerNames:
-    Description: Please list any other company names in the last 3 years
+    Description: Please list any other company names in the last 3 years.
     Type: String
   BriefDescriptionOfCustomer:
-    Description: Please provide a brief overview of the company's work
+    Description: A brief overview of the company’s work.
     Type: String
   CustomerRegisteredAddress:
-    Description: Please state the address of the company this service is for
+    Description: The address of the company this service is for.
     Type: String
 Resources:
   TVQSCW01:
@@ -241,8 +236,8 @@ Resources:
       volumeOfData: !Ref VolumeOfData
       permissionToTransfer: !Ref PermissionToTransfer
       permissionToProcess: !Ref PermissionToProcess
-      scopeOfServices1: !Ref ScopeOfServices1
-      scopeOfServices2: !Ref ScopeOfServices2
+      scopeOfServices1: !Ref Level1Services
+      scopeOfServices2: !Ref Level2Services
       termsAndConditions : !Ref TermsAndConditions
       mfa: !Ref MFA
   TVQSIAM01:
