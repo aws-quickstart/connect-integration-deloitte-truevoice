@@ -53,10 +53,10 @@
     "ParameterKey": "PreviousCustomerNames",
     "ParameterValue": "Some previous name if exists"
 },{
-    "ParameterKey": "ScopeOfServices1",
+    "ParameterKey": "Level1Services",
     "ParameterValue": "Yes"
 }, {
-    "ParameterKey": "ScopeOfServices2",
+    "ParameterKey": "Level2Services",
     "ParameterValue": "Yes"
 }, {
     "ParameterKey": "SendingFiles",
