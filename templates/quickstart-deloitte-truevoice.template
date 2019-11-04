@@ -30,11 +30,11 @@ Metadata:
           - Level1Services
           - Level2Services
       - Label:
-          default: TrueVoice Front End 
+          default: TrueVoice front end 
         Parameters:
           - UsersPov
       - Label:
-          default: TrueVoice Audio Recordings
+          default: TrueVoice audio recordings
         Parameters:
           - AudioFormatsFile
           - AudioFormatsCodecs
@@ -50,7 +50,7 @@ Metadata:
       PermissionToProcess:
         default: Permission to process
       MFA:
-        default: Mult factor authentication (MFA)
+        default: Mult-factor authentication (MFA)
       DataRetention:
         default: Data Retention
       SendingFiles:
@@ -90,51 +90,51 @@ Metadata:
       Level2Services:
         default: Level 2 Services
       TermsAndConditions:
-        default: Terms & conditions
+        default: Terms and conditions
 Parameters:
   TermsAndConditions:
     Type: String
-    Description: By submitting this form you agree that Deloitte may process any the personal data supplied by you (to include - name, email address, addresses and any incidental personal information captured on recordings) as necessary in connection with the Deloitte TrueVoice service. For more details on how Deloitte handles and shares your information, your rights and how to contact us, please follow to https://www2.deloitte.com/uk/en/footerlinks1/privacy.html. Please note that any agreement to provide the True Voice service is subject the information we receive from you and agreeing a suitable contract between us for your selected services. In addition, you agree to our terms by submitting this form, you are agreeing to our Terms & Conditions. Please view these at the following link https://d154d4u55he2e5.cloudfront.net. Please select Yes to confirm this.
+    Description: By submitting this form, you agree that Deloitte may process any personal data supplied by you (e.g., name, email address) as necessary in connection with the Deloitte TrueVoice service. For more details on how Deloitte handles and shares your information, your rights, and how to contact us, see the privacy statement(https://www2.deloitte.com/uk/en/footerlinks1/privacy.html). Please note that any agreement to provide the True Voice service is subject the information we receive from you and agreeing a suitable contract between us for your selected services. By clicking Yes, you confirm you have read and you agree to Deloitte’s Terms and Conditions(https://d154d4u55he2e5.cloudfront.net/). You represent to us that you are lawfully able to enter into contracts, and if you are entering into these Terms & Conditions on behalf of an entity, such as the company you work for, you represent to us that you have legal authority to bind that entity. We reserve the right, at our sole discretion, to change, modify, or update these Terms & Conditions at any time. Please select Yes to confirm this.
     AllowedValues: 
       - 'Yes'
   Level1Services:
     Type: String
-    Description: For the PoV, which are you looking to make use of our level 1 services? The level 1 services will be discussed in more detail in the workshop session. Please note, these typically have a 1- 4 week engagement window. To use TrueVoice, at least Level 1 Services or Level 2 Services must be selected.
+    Description: For the PoV, use Deloitte’s level 1 services. Level 1 services will be discussed in more detail in the workshop session. Please note that these typically have a 1-4 week engagement window. To use TrueVoice, either Level 1 or Level 2 services must be selected.
     AllowedValues: 
       - 'Yes'
       - 'No'
   Level2Services:
     Type: String
-    Description: For the PoV, which are you looking to make use of our level 2 services? The level 2 services will be discussed in more detail in the workshop session. Please note, these typically have a 4- 8 week engagement window. To use TrueVoice, at least Level 1 Services or Level 2 Services must be selected.
+    Description: For the PoV, use Deloitte’s level 2 services. Level 2 services will be discussed in more detail in the workshop session. Please note, these typically have a 4–8 week engagement window. To use TrueVoice, Level 1 and/or Level 2 services must be selected.
     AllowedValues: 
       - 'Yes'
       - 'No'
   MFA:
-    Description: Users for the Deloitte Hosted Web Application will be provisioned logins with MFA and username and password. Please confirm this is appropriate. Please select Yes to confirm this.
+    Description: Users of the Deloitte Hosted Web Application will be provisioned with an MFA username and password. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PermissionToProcess:
-    Description: By submitting this application, you are permitting us to process this data on the TrueVoice platform for the Deloitte Provisioned AWS cloud in the eu-west-2 (London) region. Further regions will be made available in Q4 2019. Please select Yes to confirm this.
+    Description: By submitting this application, you permit Deloitte to process your data on the TrueVoice platform for the Deloitte-provisioned AWS cloud in the EU (London) Region.  The service may be expanded to other regions based on customer demand, localization, data sovereignty requirements or other relevant criteria. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PermissionToTransfer:
-    Description: Please confirm that it is appropriate for you to transfer this data to TrueVoice for processing and use in this engagement. For the PoV, we will hold your data for 90 days post PoV completion, after which data is deleted. Please select Yes to confirm this.
+    Description: Please confirm that it is appropriate for you to transfer this data to TrueVoice for processing and use in this engagement. For the PoV, Deloitte will hold your data for 90 days post PoV completion, after which data will be deleted. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   VolumeOfData:
-    Description: Please confirm you are able to provide at least 1,000 hours of audio, in English, will be required for this engagement (maximum of 3,000 hours). Please select Yes to confirm this.
+    Description: Please confirm you are able to provide at least 1,000 hours of audio, which is a requirement for this engagement (maximum of 3,000 hours). Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   DataRetention:
-    Description: For the POV, we will hold your data for 90 days post PoV completion, after which data is deleted. Please confirm this is appropriate. Please select Yes to confirm this.
+    Description: For the PoV, Deloitte will hold your data for 90 days post PoV completion, after which data will be deleted. Please select Yes to confirm this.
     Type: String
     AllowedValues: 
       - 'Yes'
@@ -146,37 +146,37 @@ Parameters:
       - 'Yes'
       - 'No'
   Metadata:
-    Description: Are you able to supply alongside the media files the minimum required metadata and in the required format (please refer to deployment guide)? Please also detail any other metadata that can be provided beyond the minimum amount.
+    Description: Are you able to supply, alongside the media files, the minimum required metadata using the required format (please refer to the File transfer to the TrueVoice AWS account section in this deployment guide)? Please also detail any other metadata that can be provided beyond the minimum amount.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   MultiChannel:
-    Description: For each of the audio formats listed above, please list whether the audio will be single channel, or multi-channel and if so whether callers and operator audio are separated by channel.
+    Description: For each audio format listed, please list whether the audio will be single channel or multi-channel, and if so, whether caller audio and operator audio are separated by channel.
     Type: String
     AllowedValues: 
       - Unknown
       - Single (Mono)
       - Multi (Stereo)
   AudioFormatsCodecs:
-    Description: What file formats would TrueVoice need to process?
+    Description: Which codecs will TrueVoice need to process?
     Type: String
     AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   AudioFormatsFile:
-    Description: What codecs would TrueVoice need to process?
+    Description: Which file formats will TrueVoice need to process?
     Type: String
     AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   UsersPov:
-    Description: How many Deloitte Hosted Web Application user profiles would you require? This is limited to 5 for a POV. Deloitte will request these user details in the kick off workshop. 
+    Description: How many Deloitte Hosted Web Application user profiles do you require? This is limited to 5 for a PoV. Deloitte will request these user details in the kickoff workshop.
     Type: String
   CustomerName:
     Description: The name of the company this service is for.
     Type: String
   CustomerMainContactName:
-    Description: The name of the main customer contact for this service. Correspondence will be with this person. 
+    Description: The name of the main customer contact for this service. Correspondence will be with this person.
     Type: String
   CustomerMainContactEmail:
-    Description: The name of the main customer contact for this service. Correspondence will be with this person. 
+    Description: The email of the main customer contact for this service. Correspondence will be with this person.
     Type: String
     AllowedPattern: ([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)
   PersonCompletingForm:
@@ -190,13 +190,13 @@ Parameters:
     Description: The industry this company serves.
     Type: String
   ListedOrQuoted:
-    Description: Choose yes if your company is listed in a stock exchange.
+    Description: Choose Yes if your company is listed in a stock exchange.
     Type: String
     AllowedValues: 
       - 'Yes'
       - 'No'
   PreviousCustomerNames:
-    Description: Please list any other company names in the last 3 years.
+    Description: List any other company names from the last 3 years.
     Type: String
   BriefDescriptionOfCustomer:
     Description: A brief overview of the company’s work.
