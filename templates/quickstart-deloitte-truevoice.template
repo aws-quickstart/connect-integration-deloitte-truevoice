@@ -159,11 +159,11 @@ Parameters:
       - Single (Mono)
       - Multi (Stereo)
   AudioFormatsCodecs:
-    Description: Which codecs will TrueVoice need to process?
+    Description: 'Provide a comma-delimited list of audio format codecs for TrueVoice to use. Available options: Unknown, G729a, and G711'
     Type: String
     AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   AudioFormatsFile:
-    Description: Which file formats will TrueVoice need to process?
+    Description: 'Provide a comma-delimited list of audio file formats for TrueVoice to process. Available options: Unknown, .mp3, .wav, and .mov'
     Type: String
     AllowedPattern: ^\s*[A-Za-z0-9\.]+(?:,+[A-Za-z0-9\.]+)*,*$
   UsersPov:
