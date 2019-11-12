@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: AWS Lambda function to make API Gateway call.
+Description: AWS Lambda function to make API Gateway call. (qs-1q5uqlscb)
 Metadata:
   'AWS::CloudFormation::Interface':
     ParameterGroups:
