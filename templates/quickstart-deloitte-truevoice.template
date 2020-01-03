@@ -169,12 +169,15 @@ Parameters:
   UsersPov:
     Description: The number of Deloitte Hosted Web Application user profiles that you require. The maximum is 5 for a PoV. Deloitte will request these user details in the kickoff workshop.
     Type: String
+    AllowedPattern: ^.+$
   CustomerName:
     Description: The name of the company this service is for.
     Type: String
+    AllowedPattern: ^.+$
   CustomerMainContactName:
     Description: The name of the main customer contact for this service. Correspondence will be with this person.
     Type: String
+    AllowedPattern: ^.+$
   CustomerMainContactEmail:
     Description: The email address of the main customer contact for this service. Correspondence will be with this person.
     Type: String
@@ -182,6 +185,7 @@ Parameters:
   PersonCompletingForm:
     Description: The name of the person completing this template.
     Type: String
+    AllowedPattern: ^.+$
   PersonCompletingEmailAddress:
     Description: The email address of the person completing this template.
     Type: String
@@ -189,6 +193,7 @@ Parameters:
   CustomerIndustry:
     Description: The industry the company serves.
     Type: String
+    AllowedPattern: ^.+$
   ListedOrQuoted:
     Description: Stock exchange listing. Choose Yes if the company is listed on a stock exchange.
     Type: String
@@ -198,12 +203,15 @@ Parameters:
   PreviousCustomerNames:
     Description: Company names. List any other company names from the last 3 years.
     Type: String
+    AllowedPattern: ^.+$
   BriefDescriptionOfCustomer:
     Description: A brief overview of the company’s work.
     Type: String
+    AllowedPattern: ^.+$
   CustomerRegisteredAddress:
     Description: The address of the company this service is for.
     Type: String
+    AllowedPattern: ^.+$
 Resources:
   TVQSCW01:
     Type: AWS::Logs::LogGroup
