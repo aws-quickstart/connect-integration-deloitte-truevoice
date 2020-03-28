@@ -1,0 +1,60 @@
+project:
+  name: connect-integration-deloitte-truevoice
+  owner: quickstart-eng@amazon.com
+  package_lambda: false
+  regions:
+  - ap-northeast-1
+  # - ap-northeast-2
+  # - ap-south-1
+  # - ap-southeast-1
+  # - ap-southeast-2
+  # - ca-central-1
+  # - eu-central-1
+  # - eu-west-1
+  # - sa-east-1
+  # - us-east-1
+  # - us-east-2
+  # - us-west-1
+  # - us-west-2
+tests:
+  quickstart-deloitte-truevoicet1:
+    parameters:
+      AudioFormatsCodecs: Unknown
+      AudioFormatsFile: Unknown
+      BriefDescriptionOfCustomer: test
+      CustomerIndustry: test
+      CustomerMainContactEmail: x@test.com
+      CustomerMainContactName: test
+      CustomerName: test
+      CustomerRegisteredAddress: test
+      DataRetention: 'No'
+      Level1Services: 'Yes'
+      Level2Services: 'Yes'
+      ListedOrQuoted: 'Yes'
+      MFA: 'Yes'
+      Metadata: 'Yes'
+      MultiChannel: Unknown
+      PermissionToProcess: 'Yes'
+      PermissionToTransfer: 'Yes'
+      PersonCompletingEmailAddress: x@test.com
+      PersonCompletingForm: test
+      PreviousCustomerNames: test
+      SendingFiles: 'Yes'
+      TermsAndConditions: 'Yes'
+      UsersPov: '1'
+      VolumeOfData: 'Yes'
+    regions:
+    - ap-northeast-1
+    # - ap-northeast-2
+    # - ap-south-1
+    # - ap-southeast-1
+    # - ap-southeast-2
+    # - ca-central-1
+    # - eu-central-1
+    # - eu-west-1
+    # - sa-east-1
+    # - us-east-1
+    # - us-east-2
+    # - us-west-1
+    # - us-west-2
+    template: templates/quickstart-deloitte-truevoice.template.yaml
