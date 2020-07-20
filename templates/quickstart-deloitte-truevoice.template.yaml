@@ -220,6 +220,7 @@ Resources:
       RetentionInDays: 60
   TVQSCR01:
     Type: Custom::TVQSCR01
+    DependsOn: TVQSCW01
     Properties:
       ServiceToken: !GetAtt 'TVQSL01.Arn'
       accountNum: !Sub ${AWS::AccountId}
@@ -289,11 +290,14 @@ Resources:
           import logging
           import boto3
           import signal
+          import traceback
           from urllib.parse import urlparse, urlencode
           from urllib.request import urlopen, Request, build_opener, HTTPSHandler
           from urllib.error import HTTPError
 
           def handler(event, context):
+            print('Received event')
+            print(event)
             p=event['ResourceProperties']
             signal.alarm(context.get_remaining_time_in_millis() - 1000)
             try:
@@ -313,7 +317,8 @@ Resources:
                 send_response(event, context, "SUCCESS", {"Message": "Resource deletion successful!"})
               else:
                 send_response(event, context, "FAILED", {"Message": "Unexpected event received from CloudFormation"})
-            except:
+            except Exception:
+              traceback.print_exc()
               send_response(event, context, "FAILED", {"Message": "Exception during processing"})
           def send_response(event, context, response_status, response_data):
             response_body = bytes(json.dumps( { "Status": response_status,"Reason": "See the details in CloudWatch Log Stream: " + context.log_stream_name,"PhysicalResourceId": context.log_stream_name,"StackId": event['StackId'],"RequestId": event['RequestId'],"LogicalResourceId": event['LogicalResourceId'],"Data": response_data } ), encoding='utf8')
