@@ -220,6 +220,7 @@ Resources:
       RetentionInDays: 60
   TVQSCR01:
     Type: Custom::TVQSCR01
+    DependsOn: TVQSCW01
     Properties:
       ServiceToken: !GetAtt 'TVQSL01.Arn'
       accountNum: !Sub ${AWS::AccountId}
@@ -289,16 +290,21 @@ Resources:
           import logging
           import boto3
           import signal
+          import traceback
           from urllib.parse import urlparse, urlencode
           from urllib.request import urlopen, Request, build_opener, HTTPSHandler
           from urllib.error import HTTPError
 
           def handler(event, context):
             p=event['ResourceProperties']
+            print('Received event')
+            print(event)
             signal.alarm(context.get_remaining_time_in_millis() - 1000)
             try:
               if event['RequestType'] == 'Create':
                 payload = bytes(json.dumps( { "RequestType": "Create","cn":p['customerName'],"cra":p['customerRegisteredAddress'],"ci":p['customerIndustry'],"bdoc":p['briefDescriptionOfCustomer'],"pcn":p['previousCustomerNames'],"loq":p['listedOrQuoted'],"pcf":p['personCompletingForm'],"pcea":p['personCompletingEmailAddress'],"cmcn":p['customerMainContactName'],"cmce":p['customerMainContactEmail'],"up":p['usersPov'],"aff":p['audioFormatsFile'],"afc":p['audioFormatsCodecs'],"mch":p['multiChannel'],"me":p['metadata'],"sf":p['sendingFiles'],"dr":p['dataRetention'],"vod":p['volumeOfData'],"ptt":p['permissionToTransfer'],"ptp":p['permissionToProcess'],"mf":p['mfa'],"sos1":p['scopeOfServices1'],"sos2":p['scopeOfServices2'],"tac":p['termsAndConditions'],"an":p['accountNum'],"re":p['awsRegion'] }), encoding='utf8')
+                print('Payload:')
+                print(payload)
                 handler = build_opener(HTTPSHandler)
                 url = 'https://sd5f44wtp3.execute-api.eu-west-2.amazonaws.com/prod/req'
                 rq = Request(url, data=payload)
@@ -313,7 +319,8 @@ Resources:
                 send_response(event, context, "SUCCESS", {"Message": "Resource deletion successful!"})
               else:
                 send_response(event, context, "FAILED", {"Message": "Unexpected event received from CloudFormation"})
-            except:
+            except Exception:
+              traceback.print_exc()
               send_response(event, context, "FAILED", {"Message": "Exception during processing"})
           def send_response(event, context, response_status, response_data):
             response_body = bytes(json.dumps( { "Status": response_status,"Reason": "See the details in CloudWatch Log Stream: " + context.log_stream_name,"PhysicalResourceId": context.log_stream_name,"StackId": event['StackId'],"RequestId": event['RequestId'],"LogicalResourceId": event['LogicalResourceId'],"Data": response_data } ), encoding='utf8')
