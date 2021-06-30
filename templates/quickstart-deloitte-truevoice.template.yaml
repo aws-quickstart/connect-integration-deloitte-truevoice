@@ -1,6 +1,33 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS Lambda function to make API Gateway call. (qs-1q5uqlscb)
 Metadata:
+  LintSpellExclude:
+    - Application
+    - Cloud
+    - Conditions
+    - Deloitte
+    - File
+    - Hosted
+    - Level
+    - London
+    - Metadata
+    - Please
+    - Terms
+    - 'True'
+    - TrueVoice
+    - Unknown
+    - Voice
+    - Web
+    - 'Yes'
+    - You
+    - codecs
+    - kickoff
+    - metadata
+    - mov
+    - mp3
+    - upload
+    - wav
+  cfn-lint: { config: { ignore_checks: [W9006] } }
   'AWS::CloudFormation::Interface':
     ParameterGroups:
       - Label:
@@ -260,7 +287,7 @@ Resources:
               Service: lambda.amazonaws.com
             Action: 'sts:AssumeRole'
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+        - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
       Path: /
       Policies:
       - PolicyName: logs
@@ -273,9 +300,16 @@ Resources:
             - 'logs:CreateLogStream'
             - 'logs:PutLogEvents'
             - 'logs:DescribeLogStreams'
-            Resource: "*"
+            Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:*
   TVQSL01:
     Type: 'AWS::Lambda::Function'
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E9101
+          ignore_reasons:
+            E9101: The usage of execute is in the context of Amazon API Gateway endpoint.
     Properties:
       Description: Calls API
       Handler: index.handler
