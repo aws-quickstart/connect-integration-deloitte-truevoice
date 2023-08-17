@@ -1,0 +1,89 @@
+// Include any postdeployment steps here, such as steps necessary to test that the deployment was successful. If there are no postdeployment steps, leave this file empty.
+
+== Postdeployment steps
+
+=== Make note of your TrueVoice registration ID
+
+Under the stack’s outputs, note the TrueVoice registration ID. This is the number that will be quoted in all communications from the TrueVoice PoV engagement team. You can expect to be contacted by the TrueVoice PoV engagement team.
+
+[#postdeploy1]
+.TrueVoice PoV registration outputs after successful deployment
+image::../docs/deployment_guide/images/image2.png[Postdeploy]
+
+=== Await confirmation from the TrueVoice PoV engagement team
+
+The TrueVoice PoV engagement team will review all the information provided in the Quick Start template parameters and perform a set of due-diligence and conflict-check procedures to ensure Deloitte can provide the PoV services. If these checks are successfully completed, you can expect to be contacted with:
+
+* Details of the AWS Service Catalog Product that has been shared with the account used to launch the Quick Start
+* Instructions on how to launch the AWS Service Catalog Product
+
+*Note* The Service Catalog Product should be launched in the same region where the Quick Start was launched.
+
+* An invitation to an onboarding workshop with the TrueVoice PoV delivery team
+
+=== File transfer to the TrueVoice AWS account
+
+Audio and metadata files must be transferred for processing from your account to dedicated resources created for you in the TrueVoice AWS account in the EU (London) Region. The service may be expanded to other regions based on customer demand, localization, data‑sovereignty requirements, or other relevant criteria.
+
+After the TrueVoice PoV integration stack launches successfully, data processing will be controlled using the registration ID you received as part of the Quick Start launch. After the initial workshop has taken place, audio and metadata files must be uploaded to the Amazon S3 bucket. Use the following paths when uploading your files:
+
+* <TrueVoice Integration bucket>/<registration_id>/audio/
+* <TrueVoice Integration bucket>/<registration_id>/metadata/
+
+=== TrueVoice metadata definition
+
+TrueVoice PoV customers should supply metadata together with media files for processing. Metadata is a core requirement for aggregation and presentation of results on the TrueVoice PoV front end. Metadata must be supplied in the following manner:
+
+* Uploaded as a plain-text JavaScript Object Notation (JSON) file under the paths shown in the previous section.
+* There are no strict naming conventions for JSON files, but filenames must contain the .json extension and be unique to prevent duplication or inadvertent overwriting.
+* Each JSON file can have multiple media objects.
+* If a single media object per file is supplied, it should still be wrapped in an array.
+* Each media object can have multiple customers, agents, and tags.
+
+A full set of metadata elements is provided in this table:
+
+[cols=",,,,",options="header",]
+|===
+|Object |Key |Data type |Description |Importance
+|<root> |media_id |String |ID for the file, which should match customer’s internal media ID. |Required
+| |media_filename |String |Name of the media file this metadata record is for. |Required
+| |case_id |String |ID used to link multiple media files together into a single case. |Optional
+| |media_type |String |Valid values: audio. |Required
+| |brick |String a|
+This is the *registration ID* you received during the Quick Start launch. All data is logically segregated at a brick level. Each media file is associated with a single brick.
+
+Visibility and data segregation on the TrueVoice front end is controlled by associating data and users to bricks.
+
+|Required
+| |media_timestamp |String – UTC Time |Defines the time period that the media file is related to. |Required
+|agent |agent_id |String |Required for agent-related screens. |Required
+| |manager_id |String |Required for agent-related screens. |Optional
+|tag |tag_type |String |For use if call outcomes are already known (e.g., a call with a known complaint or reason associated with it). These can be used to validate the PoV results. |Optional
+| |tag_value |String | |Optional
+| |time_from |String – UTC Time | |Optional
+| |time_to |String – UTC Time | |Optional
+|===
+
+The following is an example of the minimum amount of metadata that must be provided.
+
+----
+"media_id":"MC123_19941105131530",
+
+"media_filename":"MC123_19941105131530.wav",
+
+"media_type":"audio",
+
+"brick":"registration_id",
+
+"media_timestamp":"1994-11-05T13:15:30Z",
+
+"agent" : [
+
+    \{
+
+    "agent_id":"ef456"
+
+    }
+
+}]
+----
