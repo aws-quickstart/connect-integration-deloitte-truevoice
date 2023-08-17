@@ -1,0 +1,49 @@
+This guide covers the information you need to deploy the {partner-product-name} Partner Solution in the AWS Cloud.
+
+// Fill in the info in <angle brackets> for use on the landing page only: 
+This deployment guide provides step-by-step instructions for deploying the TrueVoice Proof of Value (PoV) registration artifacts on the AWS Cloud.
+
+=== TrueVoice on AWS
+
+TrueVoice is an artificial intelligence (AI)-driven voice analytics solution that analyzes behavior and emotion on every call, which helps call centers to quickly understand how customers feel. It monitors all customer interactions to highlight areas of risk and opportunities to improve outcomes.
+
+TrueVoice analyzes both language and behaviors—“what is said” and “how it is said.” This is unique in that it harnesses the power of machine learning to predict outcomes instead of relying on standard keywords.
+
+TrueVoice provides deep analytics and insights, which can be tailored to your specific requirements. Outcomes are based on a customer’s complete experience, rather than on isolated incidents. This provides outlier detection that enables appropriate action on higher-risk segments or interactions.
+
+For more information about TrueVoice, see the https://www2.deloitte.com/uk/en/pages/risk/solutions/truevoice.html[TrueVoice website].
+
+As part of this Quick Start, complete the online form that asks questions about your business and the TrueVoice services that you want to use. You can select from a range of level 1 and level 2 services.
+
+==== Level 1 services
+
+* Transcription: Converts audio into text for insight and analysis
+* Reasons for call: Understand caller intent to see the real drivers of customer interactions
+* Behavioral sentiment: Identifies and categorizes emotions and sentiments on a call, using language and behavioral features, such as pitch
+* Complaints: Identifies dissatisfied customers and those with a propensity to complain, which enables proactive interventions
+* Agent quality: Uses a combination of features, including customer engagement, the emotional journey of a call, and compliance, to provide agent scores and benchmarking
+
+==== Level 2 services
+
+* Vulnerability: Identifies customers that show vulnerability traits from your call population
+* Customer churn: Identifies characteristics of dissatisfied and unhappy customers with a higher propensity to leave
+* Agent churn: Highlights agents who are under undue pressure and those at risk from churn factors
+* Additional use cases: As part of the kickoff workshop, Deloitte will happily discuss other use cases that may be relevant to your business or industry. Examples include using voice recordings for Net Promoter Score (NPS) prediction and support for supply-chain management
+
+*Note* After you complete the form and launch the Quick Start, the information you provide will undergo due diligence to ensure Deloitte can engage with you and that you satisfy the terms of the TrueVoice PoV. If this process is successful, the TrueVoice PoV engagement team will contact you to initiate the next steps of the process.
+
+* Deloitte will share an https://aws.amazon.com/servicecatalog/[AWS Service Catalog] Product with you for launching TrueVoice PoV integration resources.
+* Deloitte will then run a 2-hour workshop to review target use cases and outcomes in order to establish success metrics.
+* Deloitte will engage with you in PoV testing. We will ingest sample data, provide initial outcomes based on the services you are interested in, and then tailor these outcomes to your specific business needs (e.g., tailoring baseline models to your business’ particular reasons for a call or definition of a complaint).
+
+==== During the PoV process
+
+* In week 1, Deloitte will provide you with baseline results from call recordings, which are accessible through the TrueVoice web application.
+* Throughout the PoV process, Deloitte will provide updates on the progress of tailoring services to your business needs. For level 1 services, these typically take 2–4 weeks to refine, whereas level 2 services can take 4–8 weeks. At the end of the PoV, Deloitte will walk you through the updated insights and demonstrate the value of TrueVoice and its capabilities.
+
+==== After the PoV process
+
+* Deloitte will initiate a one-time deployment, or an established cadence of ongoing advanced analytics against aligned key metrics, with reporting and continuous feedback mechanisms in place.
+* The timelines for this will depend on the scope, volume of call recordings, and any contractual discussions.
+
+*Note* The TrueVoice service will process the audio files that you provide during the TrueVoice PoV. The audio files will be processed exclusively in the EU (London) Region, and all processing outputs will be stored in this Region for up to 90 days after the completion of the PoV. The service may be expanded to other AWS Regions based on customer demand, localization, data sovereignty requirements, and other relevant criteria.
